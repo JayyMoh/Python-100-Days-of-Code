@@ -87,10 +87,10 @@ def hit(player):
 # ===== Compare hands =====
 def stand(dealer, player):
     # ===== Dealer draws one more if under 17 =====
-    if dealers_total < 17 and len(dealers_hand) < 3:
+    if dealers_total(dealers_hand) < 17 and len(dealers_hand) < 3:
         deal(1, dealers_hand)
         dealers_total(dealers_hand)
-    # ===== Get and compare totals =====     
+    # ===== Get and compare totals =====
     dealer = dealers_total(dealers_hand)
     player = players_total(players_hand)
     dealer_to_21 = 21 - dealer
@@ -102,6 +102,8 @@ def stand(dealer, player):
         print(f"The dealer had {dealer}. You win with a total of {player}!")
     elif player_to_21 == dealer_to_21 and player <= 21 and dealer <= 21:
         print(f"We have a standoff! You both have a total of {dealer}.")
+    elif dealer > 21:
+        print(f"Dealer bust! You win.")    
     playAgain()  
 # ===== Ask the player to hit or stand =====    
 def hitOrStand():
