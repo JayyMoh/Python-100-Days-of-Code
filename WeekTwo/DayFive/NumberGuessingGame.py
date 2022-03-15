@@ -36,7 +36,7 @@ def checkGuess(number, number_of_guesses):
             print(f"{guess} is too low.")
         elif guess == number:
             num_guessed = True
-            print('You guessed the number!')
+            print(f'{number} is the correct number, Congratulations!')
             print("-----------------------")
             playAgain()
         number_of_guesses -= 1
@@ -51,8 +51,8 @@ def playAgain():
     if choice == 'yes':
         clear()
         game()
-    else:
-        return
+    elif choice == 'no':
+        quit()
 # ===== GAME =====
 def game():
     # ===== Get random number =====
